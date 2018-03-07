@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Edit Address</ion-title>
+    <ion-buttons end>
+      <button ion-button class="closebtn" (click)="close()">
+        <ion-icon name="md-close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label>IP Address</ion-label>
+      <ion-input type="text" [(ngModel)]="ipData.address"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Device Name</ion-label>
+      <ion-input type="text" [(ngModel)]="ipData.device"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button full class="addbtn" (click)="save()">Save</button>
+
+</ion-content>
