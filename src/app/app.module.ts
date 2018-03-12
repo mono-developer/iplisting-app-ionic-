@@ -12,13 +12,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { AddIpPage } from '../pages/add-ip/add-ip';
 import { EditIpPage } from '../pages/edit-ip/edit-ip';
+import { PopoverContentPage } from '../pages/popover/popover';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     AddIpPage,
-    EditIpPage
+    EditIpPage,
+    PopoverContentPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import { EditIpPage } from '../pages/edit-ip/edit-ip';
     MyApp,
     HomePage,
     AddIpPage,
-    EditIpPage
+    EditIpPage,
+    PopoverContentPage
   ],
   providers: [
     StatusBar,

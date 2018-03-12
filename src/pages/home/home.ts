@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, ModalController, Modal, ToastController } from 'ionic-angular';
+import { NavController, ModalController, Modal, ToastController, PopoverController, Popover, ItemSliding } from 'ionic-angular';
 import { AddIpPage } from '../add-ip/add-ip';
 import { EditIpPage } from '../edit-ip/edit-ip';
+import { PopoverContentPage } from '../popover/popover';
 import { Storage } from '@ionic/storage';
 import { InAppBrowser, InAppBrowserOptions } from '@ionic-native/in-app-browser';
 
@@ -30,13 +31,13 @@ export class HomePage {
     presentationstyle: 'pagesheet',//iOS only
     fullscreen: 'yes',//Windows only
   };
-  url: string = 'https://ticket-angular5.herokuapp.com'
   constructor(
     public navCtrl: NavController,
     public modalCtrl: ModalController,
     public storage: Storage,
     private toastCtrl: ToastController,
-    private theInAppBrowser: InAppBrowser
+    private theInAppBrowser: InAppBrowser,
+    public popoverCtrl: PopoverController,
   ) {
     this.dataList= [];
   }
@@ -71,9 +72,10 @@ export class HomePage {
     profileModal.present();
   }
 
-  editAddress(item, index) {
+  editAddress(item, index, slidingItem: ItemSliding) {
     console.log( item, index)
     this.navCtrl.push(EditIpPage, { ipData: item, index: index, dataList: this.dataList});
+    slidingItem.close();
   }
 
   deleteAddress(event, index) {
@@ -88,13 +90,29 @@ export class HomePage {
     console.log(this.dataList);
   }
 
-  openIndex(address) {
-    this.theInAppBrowser.create("http://" + address + "/index", '_blank', this.options);
+  selectOptions(myEvent, address) {
+    let popover = this.popoverCtrl.create(PopoverContentPage);
+    popover.present({
+      ev: myEvent
+    });
 
+    popover.onDidDismiss((popoverData) => {
+      if (popoverData == '1') {
+        console.log('1');
+        this.openIndex(address);
+      }else {
+        console.log('2');
+        this.openSetup(address);
+      }
+    })
   }
 
-  openStep(address) {
-    this.theInAppBrowser.create("http://" + address + "/step", '_blank', this.options);
+  openIndex(address) {
+    this.theInAppBrowser.create("http://" + address, '_blank', this.options);
+  }
+
+  openSetup(address) {
+    this.theInAppBrowser.create("http://" + address + "/list", '_blank', this.options);
   }
 
 }
