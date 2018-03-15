@@ -18,3 +18,18 @@
 .toast-wrapper {
   background: #f79b13 !important;
 }
+
+$start-blue: #08a0e6;
+$end-blue: #009FCF;
+$start-green: #20f289;
+$end-green: #1CD89D;
+
+.toolbar-title{
+  color: #fff !important;
+  font-size: 20px !important;
+}
+ion-navbar.toolbar {
+	min-height: 55px;
+}
+
+

@@ -97,12 +97,14 @@ export class HomePage {
     });
 
     popover.onDidDismiss((popoverData) => {
-      if (popoverData == '1') {
+      if(popoverData == '1') {
         console.log('1');
         this.openIndex(address);
-      }else {
+      }else if(popoverData == '2'){
         console.log('2');
         this.openSetup(address);
+      }else{
+        console.log('none');
       }
     })
   }

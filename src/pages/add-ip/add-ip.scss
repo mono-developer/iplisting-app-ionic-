@@ -1,8 +1,16 @@
 page-add-ip {
+   .toolbar-background {
+     background: $start-green;
+     /* For browsers that do not support gradients */
+     background: linear-gradient(to bottom right, $start-green, $start-blue);
+     /* Standard syntax (must be last) */
+   }
+
   .closebtn {
-    width: 30px;
-    font-size: 20px;
-    font-weight: 600;
+     width: 30px;
+     font-size: 25px;
+     font-weight: 600;
+     color: #fff;
   }
 
   .addbtn{

@@ -1,17 +1,28 @@
 page-home {
 
+  .toolbar-background {
+    background: $start-green; /* For browsers that do not support gradients */
+    background: linear-gradient(to bottom right, $start-green, $start-blue);  /* Standard syntax (must be last) */
+  }
+
   .addbtn{
     width: 30px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 600;
+    color: #fff;
   }
 
   ion-item{
+    h2{
+      font-size: 20px !important;
+    }
     .settingbtn {
-      width: 40px;
+      width: 50px;
       height: 30px !important;
-      background: #f9ab1f;
       font-size: 17px !important;
+      ion-icon{
+        font-size: 30px;
+      }
     }
 
   }

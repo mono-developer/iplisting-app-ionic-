@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Home
+      Devices
     </ion-title>
     <ion-buttons end>
       <button ion-button class="addbtn" (click)="addAddress()"><ion-icon name="md-add"></ion-icon></button>
@@ -14,26 +14,32 @@
   <ion-list>
     <ion-item-sliding *ngFor="let item of dataList; let index = index" #slidingItem>
       <ion-item>
-        <h2>{{item.device}}</h2>
-        <p>{{item.address}}</p>
-        <button ion-button item-end class="settingbtn" (click)="selectOptions($event, item.address)">
-          <ion-icon name="md-settings"></ion-icon>
+        <div (click)="openIndex(item.address)">
+          <h2 class="title">{{item.device}}</h2>
+          <p>{{item.address}}</p>
+        </div>
+        <button ion-button clear item-end class="settingbtn" (click)="openSetup(item.address)">
+          <ion-icon name="ios-settings"></ion-icon>
         </button>
+
       </ion-item>
 
-      <ion-item-options side="right">
-
+      <ion-item-options side="left">
         <button ion-button color="secondary" (click)="editAddress(item, index, slidingItem)">
           <ion-icon name="ios-create-outline"></ion-icon>
-            Edit
+          Edit
         </button>
+      </ion-item-options>
 
+      <ion-item-options side="right">
         <button ion-button color="danger" (click)="deleteAddress($event, index, slidingItem)">
           <ion-icon name="ios-trash"></ion-icon>
-            Del
+          Delete
         </button>
-
       </ion-item-options>
+
+
+
     </ion-item-sliding>
 
   </ion-list>
