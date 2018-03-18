@@ -29,7 +29,22 @@ $end-green: #1CD89D;
   font-size: 20px !important;
 }
 ion-navbar.toolbar {
-	min-height: 55px;
+	min-height: 65px;
+}
+
+.ios ion-nav > .ion-page > ion-header > .toolbar.statusbar-padding:first-child ion-title{
+	padding-top: 30px;
+}
+.ios ion-nav > .ion-page > ion-header > .toolbar.statusbar-padding:first-child{
+	 min-height: 65px; 
+	 padding-top: calc(25px + 4px);
+}
+.ios .modal-wrapper > .ion-page > ion-header > .toolbar.statusbar-padding:first-child ion-title{
+	padding-top: 30px;
+}
+.ios .modal-wrapper > .ion-page > ion-header > .toolbar.statusbar-padding:first-child{
+	min-height: 65px; 
+	 padding-top: calc(25px + 4px);
 }
 
 
