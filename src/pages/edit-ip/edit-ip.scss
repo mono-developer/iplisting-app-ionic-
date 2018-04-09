@@ -14,4 +14,13 @@ page-edit-ip {
   .back-button{
     display: none !important;
   }
+
+  .toolbar-background {
+    background: $start-green;
+    /* For browsers that do not support gradients */
+    background: linear-gradient(to bottom right, $start-green, $start-blue);
+    /* Standard syntax (must be last) */
+  }
+
+
 }
